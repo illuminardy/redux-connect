@@ -61,6 +61,7 @@ export function eachComponents(components, iterator) {
  * @return {Array}
  */
 export function filterAndFlattenComponents(components) {
+  console.log("INSIDE  filterAndFlattenComponents components " +  components);
   const flattened = [];
   eachComponents(components, component => {
     if (component && component.reduxAsyncConnect) {
@@ -122,6 +123,7 @@ export function loadAsyncConnect({ components, filter = () => true, ...rest }) {
  * @return {Promise}
  */
 export function loadOnServer(args) {
+  console.log("INSIDE  loadOnServer args " +  args);
   return loadAsyncConnect(args).then(() => {
     args.store.dispatch(endGlobalLoad());
   });
