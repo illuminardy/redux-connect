@@ -125,9 +125,8 @@ export function loadAsyncConnect({ components, filter = () => true, ...rest }) {
  * @return {Promise}
  */
 export function loadOnServer(args) {
-  console.log("INSIDE  loadOnServer args " +  Object.keys(args));
+  console.log("INSIDE  loadOnServer args " +  Object.keys(args[1]));
   return loadAsyncConnect(args).then(() => {
-    console.log("INSIDE  loadOnServer resolved PROMISE args " +  Object.keys(args));
     args.store.dispatch(endGlobalLoad());
   });
 }
