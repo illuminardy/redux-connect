@@ -123,7 +123,7 @@ export function loadAsyncConnect({ components, filter = () => true, ...rest }) {
  * @return {Promise}
  */
 export function loadOnServer(args) {
-  console.log("INSIDE  loadOnServer args " +  args);
+  console.log("INSIDE  loadOnServer args " +  Object.keys(args));
   return loadAsyncConnect(args).then(() => {
     args.store.dispatch(endGlobalLoad());
   });
