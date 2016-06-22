@@ -68,6 +68,7 @@ export function filterAndFlattenComponents(components) {
       flattened.push(component);
     }
   });
+  console.log("INSIDE  filterAndFlattenComponents RETURNING");
   return flattened;
 }
 
@@ -80,7 +81,7 @@ export function filterAndFlattenComponents(components) {
  */
 export function loadAsyncConnect({ components, filter = () => true, ...rest }) {
   const flattened = filterAndFlattenComponents(components);
-
+  console.log("INSIDE  loadAsyncConnect flatenned complete");
   if (flattened.length === 0) {
     return Promise.resolve();
   }
