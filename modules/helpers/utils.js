@@ -91,7 +91,7 @@ export function loadAsyncConnect({ components, filter = () => true, ...rest }) {
   // cycle
   return mapSeries(flattened, component => {
     const asyncItems = component.reduxAsyncConnect;
-
+  console.log("INSIDE  loadAsyncConnect mapSeries ");
     // get array of results
     const results = asyncItems.reduce((itemsResults, item) => {
       if (filter(item, component)) {
@@ -106,7 +106,7 @@ export function loadAsyncConnect({ components, filter = () => true, ...rest }) {
 
       return itemsResults;
     }, []);
-
+  console.log("INSIDE  loadAsyncConnect Promise.all ");
     return Promise.all(results)
       .then(finalResults => finalResults.reduce((finalResult, result, idx) => {
         const { key } = asyncItems[idx];
