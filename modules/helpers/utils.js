@@ -42,7 +42,7 @@ const mapSeries = Promise.mapSeries || function promiseMapSeries(iterable, itera
  * @param iterator
  */
 export function eachComponents(components, iterator) {
-  console.log("INSIDE  eachComponents components " +  components);
+  console.log("INSIDE  eachComponents components " );
   const l = components.length;
   for (let i = 0; i < l; i++) {
     const component = components[i];
@@ -61,7 +61,7 @@ export function eachComponents(components, iterator) {
  * @return {Array}
  */
 export function filterAndFlattenComponents(components) {
-  console.log("INSIDE  filterAndFlattenComponents components " +  components);
+  console.log("INSIDE  filterAndFlattenComponents components ");
   const flattened = [];
   eachComponents(components, component => {
     if (component && component.reduxAsyncConnect) {
@@ -86,7 +86,7 @@ export function loadAsyncConnect({ components, filter = () => true, ...rest }) {
     console.log("INSIDE  loadAsyncConnect flatenned length is 0");
     return Promise.resolve();
   }
-  console.log("INSIDE  loadAsyncConnect flatenned is " + flattened);
+  console.log("INSIDE  loadAsyncConnect flatenned is ");
   // this allows us to have nested promises, that rely on each other's completion
   // cycle
   return mapSeries(flattened, component => {
