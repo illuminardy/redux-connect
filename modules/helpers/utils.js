@@ -83,9 +83,10 @@ export function loadAsyncConnect({ components, filter = () => true, ...rest }) {
   const flattened = filterAndFlattenComponents(components);
   console.log("INSIDE  loadAsyncConnect flatenned complete");
   if (flattened.length === 0) {
+    console.log("INSIDE  loadAsyncConnect flatenned length is 0");
     return Promise.resolve();
   }
-
+  console.log("INSIDE  loadAsyncConnect flatenned is " + flattened);
   // this allows us to have nested promises, that rely on each other's completion
   // cycle
   return mapSeries(flattened, component => {
